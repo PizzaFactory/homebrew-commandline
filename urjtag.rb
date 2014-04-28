@@ -18,4 +18,8 @@ class Urjtag < Formula
 
     system "make", "install"
   end
+
+  test do
+    system "jtag", "--version"
+  end
 end
