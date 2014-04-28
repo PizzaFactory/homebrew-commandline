@@ -38,8 +38,16 @@ class PfGnuchains4xArmEabi < Formula
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{prefix}/#{target}",
                             "--mandir=#{man}"
-      system "make", "all-gcc", "all-binutils", "all-ld", "all-gas", "all-gdb", "all-sim", "all-target-libgcc", "all-target-libstdc++-v3", "all-target-newlib", "all-target-libgloss"
-      system "make", "install-gcc", "install-binutils", "install-ld", "install-gas", "install-gdb", "install-sim", "install-target-libgcc", "install-target-libstdc++-v3", "install-target-newlib", "install-target-libgloss"
+      [ "binutils", "ld", "gas", "gdb", "sim", "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+        ohai "Building #{t}..."
+        %x[make all-#{t}]
+        ohai "Building #{t}...finished."
+      end
+      [ "binutils", "ld", "gas", "gdb", "sim", "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+        ohai "Installing #{t}..."
+        %x[make install-#{t}]
+        ohai "Installing #{t}...finished."
+      end
     end
     man7.rmtree
     include.rmtree
