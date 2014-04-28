@@ -9,5 +9,6 @@ env:
   - PACKAGE=urjtag
 script:
   - brew audit $PACKAGE
-  - brew install -v $PACKAGE
+  - brew install --build-bottle -v $PACKAGE
   - brew test $PACKAGE
+  - brew bottle
