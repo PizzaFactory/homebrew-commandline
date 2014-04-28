@@ -21,7 +21,8 @@ class PfGnuchains4xArmEabi < Formula
 
     Dir.mkdir 'build'
     cd 'build' do
-      system "../configure", "--disable-debug",
+      system "../configure", "--quiet",
+                            "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
