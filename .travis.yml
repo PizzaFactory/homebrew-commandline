@@ -1,4 +1,5 @@
 language: objective-c
+rvm: 1.9.3-p545 do rvm gemset create
 before_install:
 - brew update
 install:
