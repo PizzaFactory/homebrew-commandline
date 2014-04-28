@@ -9,41 +9,41 @@ install:
 env:
   matrix:
   - PACKAGE=urjtag
-  - PACKAGE=pf-gnuchains4x-arm-eabi
-  - PACKAGE=pf-gnuchains4x-arm-elf
-  - PACKAGE=pf-gnuchains4x-avr-elf
-  - PACKAGE=pf-gnuchains4x-bfin-elf
-  - PACKAGE=pf-gnuchains4x-cr16-elf
-  - PACKAGE=pf-gnuchains4x-fr30-elf
-  - PACKAGE=pf-gnuchains4x-h8300-elf
-  - PACKAGE=pf-gnuchains4x-i386-elf
-  - PACKAGE=pf-gnuchains4x-lm32-elf
-  - PACKAGE=pf-gnuchains4x-m32c-elf
-  - PACKAGE=pf-gnuchains4x-m32r-elf
-  - PACKAGE=pf-gnuchains4x-m68k-elf
-  - PACKAGE=pf-gnuchains4x-microblaze-elf
-  - PACKAGE=pf-gnuchains4x-mips-elf
-  - PACKAGE=pf-gnuchains4x-mips64
-  - PACKAGE=pf-gnuchains4x-nios2-elf
-  - PACKAGE=pf-gnuchains4x-powerpc-elf
-  - PACKAGE=pf-gnuchains4x-rx-elf
-  - PACKAGE=pf-gnuchains4x-sh-elf
-  - PACKAGE=pf-gnuchains4x-topperhrp
-  - PACKAGE=pf-gnuchains4x-v850-elf
-  - PACKAGE=pf-gnuchains4x-xstormy16-elf
-  - PACKAGE=pf-gnuchains4x-xtensa-elf
+  - PACKAGE=pf-gnuchains4x-arm-eabi-nolib
+  - PACKAGE=pf-gnuchains4x-arm-elf-nolib
+  - PACKAGE=pf-gnuchains4x-avr-elf-nolib
+  - PACKAGE=pf-gnuchains4x-bfin-elf-nolib
+#  - PACKAGE=pf-gnuchains4x-cr16-elf-nolib
+  - PACKAGE=pf-gnuchains4x-fr30-elf-nolib
+  - PACKAGE=pf-gnuchains4x-h8300-elf-nolib
+  - PACKAGE=pf-gnuchains4x-i386-elf-nolib
+  - PACKAGE=pf-gnuchains4x-lm32-elf-nolib
+  - PACKAGE=pf-gnuchains4x-m32c-elf-nolib
+  - PACKAGE=pf-gnuchains4x-m32r-elf-nolib
+  - PACKAGE=pf-gnuchains4x-m68k-elf-nolib
+  - PACKAGE=pf-gnuchains4x-microblaze-elf-nolib
+  - PACKAGE=pf-gnuchains4x-mips-elf-nolib
+  - PACKAGE=pf-gnuchains4x-mips64-elf-nolib
+  - PACKAGE=pf-gnuchains4x-mips64-toppershrp-nolib
+  - PACKAGE=pf-gnuchains4x-nios2-elf-nolib
+  - PACKAGE=pf-gnuchains4x-powerpc-elf-nolib
+  - PACKAGE=pf-gnuchains4x-rx-elf-nolib
+  - PACKAGE=pf-gnuchains4x-sh-elf-nolib
+  - PACKAGE=pf-gnuchains4x-v850-elf-nolib
+  - PACKAGE=pf-gnuchains4x-xstormy16-elf-nolib
+  - PACKAGE=pf-gnuchains4x-xtensa-elf-nolib
   global:
 script:
 - brew audit $PACKAGE
 - brew install --build-bottle -v $PACKAGE
 - brew test $PACKAGE
-- brew bottle $PACKAGE
+- bottled_file=$(brew bottle $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3); print $3}')
 deploy:
   edge: true
   provider: releases
   api-key:
     - secure:KSxUOxDlEBc4SzlSpI3Y4zkss5iX0bYlmaqJCQyUE6lwDcZM1skdTc5JMSCA8iPxzTGnJ7KbYUxpigwpE0r3JyYiXZOJQyXIg/gZ1XEDrXBif3vda8l1sOxYaoajh300arcV+RtKj4F8VmmdM1jjywYRazWpVpWmewtG0u/b+pM=
-  file: '*.tar.gz'
+  file: $bottled_file
   on:
     tags: true
     all_branches: true
