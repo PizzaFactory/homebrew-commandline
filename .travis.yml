@@ -36,7 +36,7 @@ script:
 - brew audit $PACKAGE
 - brew install --build-bottle -v $PACKAGE
 - brew test $PACKAGE
-- brew bottle
+- brew bottle $PACKAGE
 deploy:
   edge: true
   provider: releases
