@@ -9,7 +9,8 @@ class PfGnuchains4xArmEabiNolib < Formula
 
   bottle do
     root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
-    sha1 "8526e469ae3991af2090629450bff8ef4af28619" => :mavericks
+    revision 1
+    sha1 "a2644822e7615ce18038813454bea423e4b70550" => :mavericks
   end
 
   depends_on :autoconf
