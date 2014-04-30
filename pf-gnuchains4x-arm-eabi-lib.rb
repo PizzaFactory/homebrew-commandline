@@ -11,7 +11,7 @@ class PfGnuchains4xArmEabiLib < Formula
   depends_on :automake
   depends_on :libtool
   depends_on "gettext"
-  depands_on "pf-gnuchains4x-arm-eabi-nolib"
+  depends_on "pf-gnuchains4x-arm-eabi-nolib"
 
   def install
     ENV.j1
