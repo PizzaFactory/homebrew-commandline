@@ -38,7 +38,14 @@ class PfGnuchains4xShElfLib < Formula
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{prefix}/#{target}",
                             "--mandir=#{man}",
-                            "--with-multilib-list=sh2,sh4,sh4-nofpu"
+                            "--with-multilib-list=sh2,sh4,sh4-nofpu",
+                            "--disable-binutils",
+                            "--disable-ld",
+                            "--disable-gas",
+                            "--disable-gdb",
+                            "--disable-sim",
+                            "--disable-gcc"
+
       [ "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]

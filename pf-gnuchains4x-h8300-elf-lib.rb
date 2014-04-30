@@ -37,7 +37,14 @@ class PfGnuchains4xH8300ElfLib < Formula
                             "--enable-languages=c",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{prefix}/#{target}",
-                            "--mandir=#{man}"
+                            "--mandir=#{man}",
+                            "--disable-binutils",
+                            "--disable-ld",
+                            "--disable-gas",
+                            "--disable-gdb",
+                            "--disable-sim",
+                            "--disable-gcc"
+
       [ "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
