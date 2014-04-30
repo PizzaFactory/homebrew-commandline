@@ -39,12 +39,12 @@ class PfGnuchains4xShElfNolib < Formula
                             "--datarootdir=#{prefix}/#{target}",
                             "--mandir=#{man}",
                             "--with-multilib-list=sh2,sh4,sh4-nofpu"
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."

@@ -45,12 +45,12 @@ class PfGnuchains4xXstormy16ElfLib < Formula
                             "--disable-sim",
                             "--disable-gcc"
 
-      [ "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."

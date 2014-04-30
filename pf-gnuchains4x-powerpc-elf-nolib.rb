@@ -38,12 +38,12 @@ class PfGnuchains4xPowerpcElfNolib < Formula
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{prefix}/#{target}",
                             "--mandir=#{man}"
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."
