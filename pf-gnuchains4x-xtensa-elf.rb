@@ -36,7 +36,7 @@ class PfGnuchains4xXtensaElf < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{prefix}/#{target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}"
       [ "binutils", "ld", "gas", "gdb", "sim", "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
