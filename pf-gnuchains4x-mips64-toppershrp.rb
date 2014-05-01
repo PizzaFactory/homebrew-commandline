@@ -11,6 +11,7 @@ class PfGnuchains4xMips64Toppershrp < Formula
   depends_on :automake
   depends_on :libtool
   depends_on "gettext"
+  depends_on "pf-gnuchains4x-mips64-toppershrp-nolib"
 
   def install
     ENV.j1
@@ -37,13 +38,19 @@ class PfGnuchains4xMips64Toppershrp < Formula
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
-                            "--mandir=#{man}"
-      [ "binutils", "ld", "gas", "gdb", "sim", "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+                            "--mandir=#{man}",
+                            "--disable-binutils",
+                            "--disable-ld",
+                            "--disable-gas",
+                            "--disable-gdb",
+                            "--disable-sim"
+
+      [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "binutils", "ld", "gas", "gdb", "sim", "target-libgcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."
