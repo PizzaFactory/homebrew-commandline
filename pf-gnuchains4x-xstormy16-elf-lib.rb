@@ -36,21 +36,20 @@ class PfGnuchains4xXstormy16ElfLib < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{prefix}/#{target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}",
                             "--disable-binutils",
                             "--disable-ld",
                             "--disable-gas",
                             "--disable-gdb",
-                            "--disable-sim",
-                            "--disable-gcc"
+                            "--disable-sim"
 
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "gcc, "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "gcc, "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."

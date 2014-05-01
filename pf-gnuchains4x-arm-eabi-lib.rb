@@ -50,12 +50,12 @@ class PfGnuchains4xArmEabiLib < Formula
                             "--disable-gdb",
                             "--disable-sim"
 
-      [ "gcc", "target-newlib", "target-libstdc++-v3", "target-libgloss" ].each do |t|
+      [ "gcc", "target-newlib", "gcc, "target-libstdc++-v3", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "gcc, "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."
