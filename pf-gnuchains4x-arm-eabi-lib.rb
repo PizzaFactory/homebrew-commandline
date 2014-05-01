@@ -13,6 +13,11 @@ class PfGnuchains4xArmEabiLib < Formula
   depends_on "gettext"
   depends_on "pf-gnuchains4x-arm-eabi-nolib"
 
+  bottle do
+    root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
+    sha1 "f61719a30e008e1d398e06f16b3ddca4033be856" => :mavericks
+  end
+
   def install
     ENV.j1
 
@@ -37,16 +42,15 @@ class PfGnuchains4xArmEabiLib < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{prefix}/#{target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}",
                             "--disable-binutils",
                             "--disable-ld",
                             "--disable-gas",
                             "--disable-gdb",
-                            "--disable-sim",
-                            "--disable-gcc"
+                            "--disable-sim"
 
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "gcc", "target-newlib", "target-libstdc++-v3", "target-libgloss" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
