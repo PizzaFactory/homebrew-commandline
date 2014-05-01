@@ -36,7 +36,7 @@ class PfGnuchains4xShElfNolib < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{prefix}/#{target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}",
                             "--with-multilib-list=sh2,sh4,sh4-nofpu"
       [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|

@@ -42,7 +42,7 @@ class PfGnuchains4xArmEabiNolib < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{prefix}/#{target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}"
       [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
