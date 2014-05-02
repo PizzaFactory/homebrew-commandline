@@ -15,7 +15,7 @@ class PfGnuchains4xArmEabi < Formula
 
   bottle do
     root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
-    sha1 "f61719a30e008e1d398e06f16b3ddca4033be856" => :mavericks
+    sha1 "062b655eeaeaefe3571bb0ee363951c9de4f97cd" => :any
   end
 
   def install
@@ -55,7 +55,7 @@ class PfGnuchains4xArmEabi < Formula
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."

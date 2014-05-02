@@ -49,7 +49,7 @@ class PfGnuchains4xM32rElf < Formula
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."
