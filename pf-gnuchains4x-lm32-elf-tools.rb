@@ -1,17 +1,11 @@
 require "formula"
 
-class PfGnuchains4xArmEabiNolib < Formula
+class PfGnuchains4xLm32ElfTools < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
   sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
-
-  bottle do
-    root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
-    revision 2
-    sha1 "19e03955d8bf789b165b9d0e3e4ef0bc4c4076fe" => :mavericks
-  end
 
   depends_on :autoconf
   depends_on :automake
@@ -21,7 +15,7 @@ class PfGnuchains4xArmEabiNolib < Formula
   def install
     ENV.j1
 
-    target='arm-pizzafactory-eabi'
+    target='lm32-pizzafactory-elf'
 
     system "sh 00pizza-generate-link.sh"
 

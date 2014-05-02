@@ -1,6 +1,6 @@
 require "formula"
 
-class PfGnuchains4xMips64ToppershrpNolib < Formula
+class PfGnuchains4xXstormy16ElfTools < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
   sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
@@ -15,7 +15,7 @@ class PfGnuchains4xMips64ToppershrpNolib < Formula
   def install
     ENV.j1
 
-    target='mips64-pizzafactory-toppershrp'
+    target='xstormy16-pizzafactory-elf'
 
     system "sh 00pizza-generate-link.sh"
 

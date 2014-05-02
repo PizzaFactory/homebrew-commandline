@@ -1,6 +1,6 @@
 require "formula"
 
-class PfGnuchains4xArmEabi < Formula
+class PfGnuchains4xV850ElfTools < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
   sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
@@ -11,17 +11,11 @@ class PfGnuchains4xArmEabi < Formula
   depends_on :automake
   depends_on :libtool
   depends_on "gettext"
-  depends_on "pf-gnuchains4x-arm-eabi-nolib"
-
-  bottle do
-    root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
-    sha1 "062b655eeaeaefe3571bb0ee363951c9de4f97cd" => :any
-  end
 
   def install
     ENV.j1
 
-    target='arm-pizzafactory-eabi'
+    target='v850-pizzafactory-elf'
 
     system "sh 00pizza-generate-link.sh"
 
@@ -43,24 +37,20 @@ class PfGnuchains4xArmEabi < Formula
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
-                            "--mandir=#{man}",
-                            "--disable-binutils",
-                            "--disable-ld",
-                            "--disable-gas",
-                            "--disable-gdb",
-                            "--disable-sim"
-
-      [ "gcc", "target-newlib", "gcc", "target-libstdc++-v3", "target-libgloss" ].each do |t|
+                            "--mandir=#{man}"
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."
       end
     end
+    man7.rmtree
+    include.rmtree
   end
 
   test do

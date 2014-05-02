@@ -1,21 +1,26 @@
 require "formula"
 
-class PfGnuchains4xMicroblazeElfNolib < Formula
+class PfGnuchains4xArmEabiTools < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
   sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
-  depends_on "gettext"
+  bottle do
+    root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
+    sha1 "fb79452df5c7b7c4d033d59e19b99c7602040bba" => :mavericks
+  end
+
+  depends_on :autoconf => :build
+  depends_on :automake => :build
+  depends_on :libtool  => :build
+  depends_on "gettext" => :build
 
   def install
     ENV.j1
 
-    target='microblaze-pizzafactory-elf'
+    target='arm-pizzafactory-eabi'
 
     system "sh 00pizza-generate-link.sh"
 

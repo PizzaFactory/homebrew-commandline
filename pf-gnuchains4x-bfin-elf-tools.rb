@@ -1,6 +1,6 @@
 require "formula"
 
-class PfGnuchains4xNios2Elf < Formula
+class PfGnuchains4xBfinElfTools < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
   sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
@@ -15,7 +15,7 @@ class PfGnuchains4xNios2Elf < Formula
   def install
     ENV.j1
 
-    target='nios2-pizzafactory-elf'
+    target='bfin-pizzafactory-elf'
 
     system "sh 00pizza-generate-link.sh"
 
@@ -37,19 +37,13 @@ class PfGnuchains4xNios2Elf < Formula
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
-                            "--mandir=#{man}",
-                            "--disable-binutils",
-                            "--disable-ld",
-                            "--disable-gas",
-                            "--disable-gdb",
-                            "--disable-sim"
-
-      [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+                            "--mandir=#{man}"
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
         %x[make all-#{t}]
         ohai "Building #{t}...finished."
       end
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Installing #{t}..."
         %x[make install-#{t}]
         ohai "Installing #{t}...finished."
