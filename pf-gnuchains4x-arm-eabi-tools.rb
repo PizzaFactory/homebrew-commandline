@@ -8,14 +8,12 @@ class PfGnuchains4xArmEabiTools < Formula
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
   bottle do
-    root_url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/test-0.0'
-    sha1 "fb79452df5c7b7c4d033d59e19b99c7602040bba" => :mavericks
+    sha1 "80bf3204091b7146945cc97e29babb6f07cd0065" => :mavericks
   end
 
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool  => :build
-  depends_on "gettext" => :build
 
   def install
     ENV.j1
