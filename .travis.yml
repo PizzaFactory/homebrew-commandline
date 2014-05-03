@@ -9,41 +9,50 @@ install:
 env:
   matrix:
   - PACKAGE=urjtag
-  - PACKAGE=pf-gnuchains4x-arm-eabi-nolib
-  - PACKAGE=pf-gnuchains4x-arm-elf-nolib
-  - PACKAGE=pf-gnuchains4x-avr-elf-nolib
-  - PACKAGE=pf-gnuchains4x-bfin-elf-nolib
-#  - PACKAGE=pf-gnuchains4x-cr16-elf-nolib
-  - PACKAGE=pf-gnuchains4x-fr30-elf-nolib
-  - PACKAGE=pf-gnuchains4x-h8300-elf-nolib
-  - PACKAGE=pf-gnuchains4x-i386-elf-nolib
-  - PACKAGE=pf-gnuchains4x-lm32-elf-nolib
-  - PACKAGE=pf-gnuchains4x-m32c-elf-nolib
-  - PACKAGE=pf-gnuchains4x-m32r-elf-nolib
-  - PACKAGE=pf-gnuchains4x-m68k-elf-nolib
-  - PACKAGE=pf-gnuchains4x-microblaze-elf-nolib
-  - PACKAGE=pf-gnuchains4x-mips-elf-nolib
-  - PACKAGE=pf-gnuchains4x-mips64-elf-nolib
-  - PACKAGE=pf-gnuchains4x-mips64-toppershrp-nolib
-  - PACKAGE=pf-gnuchains4x-nios2-elf-nolib
-  - PACKAGE=pf-gnuchains4x-powerpc-elf-nolib
-  - PACKAGE=pf-gnuchains4x-rx-elf-nolib
-  - PACKAGE=pf-gnuchains4x-sh-elf-nolib
-  - PACKAGE=pf-gnuchains4x-v850-elf-nolib
-  - PACKAGE=pf-gnuchains4x-xstormy16-elf-nolib
-  - PACKAGE=pf-gnuchains4x-xtensa-elf-nolib
+  - PACKAGE=pf-gnuchains4x-arm-eabi-tools
+  - PACKAGE=pf-gnuchains4x-arm-elf-tools
+  - PACKAGE=pf-gnuchains4x-avr-elf-tools
+  - PACKAGE=pf-gnuchains4x-bfin-elf-tools
+#  - PACKAGE=pf-gnuchains4x-cr16-elf-tools
+  - PACKAGE=pf-gnuchains4x-fr30-elf-tools
+  - PACKAGE=pf-gnuchains4x-h8300-elf-tools
+  - PACKAGE=pf-gnuchains4x-i386-elf-tools
+  - PACKAGE=pf-gnuchains4x-lm32-elf-tools
+  - PACKAGE=pf-gnuchains4x-m32c-elf-tools
+  - PACKAGE=pf-gnuchains4x-m32r-elf-tools
+  - PACKAGE=pf-gnuchains4x-m68k-elf-tools
+  - PACKAGE=pf-gnuchains4x-microblaze-elf-tools
+  - PACKAGE=pf-gnuchains4x-mips-elf-tools
+  - PACKAGE=pf-gnuchains4x-mips64-elf-tools
+  - PACKAGE=pf-gnuchains4x-mips64-toppershrp-tools
+  - PACKAGE=pf-gnuchains4x-nios2-elf-tools
+  - PACKAGE=pf-gnuchains4x-powerpc-elf-tools
+  - PACKAGE=pf-gnuchains4x-rx-elf-tools
+  - PACKAGE=pf-gnuchains4x-sh-elf-tools
+  - PACKAGE=pf-gnuchains4x-v850-elf-tools
+  - PACKAGE=pf-gnuchains4x-xstormy16-elf-tools
+  - PACKAGE=pf-gnuchains4x-xtensa-elf-tools
   global:
+    - secure: "Xr0lWyQCpopIVPWMZTWd8XS9Hit2YL0mEQUcRxbs0o/WsRscl9t53mQuGYjhkxOMxfwKCervZgMe30BF0Ay+CdaXVaXChBAToj9+uiq4V7uCrkCguXwjU2U6L7TDdfdVcxrJPOkKMxT50a9ve4DRDiPeMVnx3ulvlOapGqM5CsM="
+before_script:
+- git config --global user.email "builder@pizzafactory.jp"
+- git config --global user.name "PizzaFactory Build Service"
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 script:
 - brew audit $PACKAGE
 - brew install --build-bottle -v $PACKAGE
 - brew test $PACKAGE
-- bottled_file=$(brew bottle $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3); print $3}')
+- bottled_file=$(brew bottle --rb $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3); print $3}')
 deploy:
   edge: true
   provider: releases
   api-key:
-    - secure:KSxUOxDlEBc4SzlSpI3Y4zkss5iX0bYlmaqJCQyUE6lwDcZM1skdTc5JMSCA8iPxzTGnJ7KbYUxpigwpE0r3JyYiXZOJQyXIg/gZ1XEDrXBif3vda8l1sOxYaoajh300arcV+RtKj4F8VmmdM1jjywYRazWpVpWmewtG0u/b+pM=
+    - secure: "KSxUOxDlEBc4SzlSpI3Y4zkss5iX0bYlmaqJCQyUE6lwDcZM1skdTc5JMSCA8iPxzTGnJ7KbYUxpigwpE0r3JyYiXZOJQyXIg/gZ1XEDrXBif3vda8l1sOxYaoajh300arcV+RtKj4F8VmmdM1jjywYRazWpVpWmewtG0u/b+pM="
   file: $bottled_file
   on:
     tags: true
     all_branches: true
+after_deploy:
+- brew bottle --merge --write '*.bottle.rb'
+- git push
