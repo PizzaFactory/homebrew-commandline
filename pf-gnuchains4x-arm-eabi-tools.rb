@@ -8,7 +8,7 @@ class PfGnuchains4xArmEabiTools < Formula
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
   bottle do
-    sha1 "80bf3204091b7146945cc97e29babb6f07cd0065" => :mavericks
+    sha1 "4649a8c6070e406daaa387276d0eb7c599066e45" => :mavericks
   end
 
   depends_on :autoconf => :build
