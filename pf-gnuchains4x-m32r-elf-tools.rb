@@ -7,10 +7,9 @@ class PfGnuchains4xM32rElfTools < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
-  depends_on "gettext"
+  depends_on :autoconf => :build
+  depends_on :automake => :build
+  depends_on :libtool => :build
 
   def install
     ENV.j1
