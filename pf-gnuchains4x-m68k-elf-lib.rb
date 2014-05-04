@@ -1,21 +1,21 @@
 require "formula"
 
-class PfGnuchains4xXstormy16Elf < Formula
+class PfGnuchains4xM68kElfLib < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
   sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
-  depends_on "gettext"
+  depends_on :autoconf => :build
+  depends_on :automake => :build
+  depends_on :libtool  => :build
+  depends_on "pf-gnuchains4x-m68k-elf-tools"
 
   def install
     ENV.j1
 
-    target='xstormy16-pizzafactory-elf'
+    target='m68k-pizzafactory-elf'
 
     system "sh 00pizza-generate-link.sh"
 
