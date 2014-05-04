@@ -7,6 +7,11 @@ class PfGnuchains4xMips64ToppershrpTools < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
+  bottle do
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-tools-0.0"
+    sha1 "0432ddc3be032981bc86fcbfce001bcaca394e1d" => :mavericks
+  end
+
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool => :build
