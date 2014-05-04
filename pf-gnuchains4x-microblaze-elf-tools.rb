@@ -7,6 +7,11 @@ class PfGnuchains4xMicroblazeElfTools < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
+  bottle do
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-tools-0.0"
+    sha1 "10ca86a7dd4f2eb0fce491ac9142d8be670601f3" => :mavericks
+  end
+
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool => :build
