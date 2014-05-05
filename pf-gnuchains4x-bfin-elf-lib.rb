@@ -55,8 +55,6 @@ class PfGnuchains4xBfinElfLib < Formula
         ohai "Installing #{t}...finished."
       end
     end
-    man7.rmtree
-    include.rmtree
   end
 
   test do
