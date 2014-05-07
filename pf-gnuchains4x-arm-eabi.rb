@@ -8,7 +8,8 @@ class PfGnuchains4xArmEabi < Formula
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-tools-0.0"
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
+    sha1 "70959cd8b1b08e0f620f7b213fe71b9094a7345d" => :mavericks
   end
 
   depends_on :autoconf => :build
