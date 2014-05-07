@@ -15,12 +15,13 @@ class PfGnuchains4xRxElf < Formula
   depends_on :automake => :build
   depends_on :libtool => :build
 
-  @target='rx-pizzafactory-elf'
 
   def install
     ENV.j1
 
     system "sh 00pizza-generate-link.sh"
+    attr :target
+  target='rx-pizzafactory-elf'
 
     Dir.mkdir 'build'
     cd 'build' do
@@ -29,7 +30,7 @@ class PfGnuchains4xRxElf < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
-                            "--target=#{@target}",
+                            "--target=#{target}",
                             "--disable-gdbtk",
                             "--disable-tui",
                             "--disable-rda",
@@ -39,7 +40,7 @@ class PfGnuchains4xRxElf < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{share}/#{@target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}"
       [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
@@ -68,6 +69,7 @@ class PfGnuchains4xRxElf < Formula
   end
 
   test do
-    system "#{@target}-gcc", "--help"
+    gcc="rx-pizzafactory-elf-gcc"
+    system gcc , "--help"
   end
 end

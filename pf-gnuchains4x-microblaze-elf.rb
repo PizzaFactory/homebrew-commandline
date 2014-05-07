@@ -15,12 +15,12 @@ class PfGnuchains4xMicroblazeElf < Formula
   depends_on :automake => :build
   depends_on :libtool => :build
 
-  @target='microblaze-pizzafactory-elf'
-
   def install
     ENV.j1
 
     system "sh 00pizza-generate-link.sh"
+
+    target='microblaze-pizzafactory-elf'
 
     Dir.mkdir 'build'
     cd 'build' do
@@ -29,7 +29,7 @@ class PfGnuchains4xMicroblazeElf < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
-                            "--target=#{@target}",
+                            "--target=#{target}",
                             "--disable-gdbtk",
                             "--disable-tui",
                             "--disable-rda",
@@ -39,7 +39,7 @@ class PfGnuchains4xMicroblazeElf < Formula
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
-                            "--datarootdir=#{share}/#{@target}",
+                            "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}"
       [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
         ohai "Building #{t}..."
@@ -68,6 +68,6 @@ class PfGnuchains4xMicroblazeElf < Formula
   end
 
   test do
-    system "#{@target}-gcc", "--help"
+    system "microblaze-pizzafactory-elf-gcc", "--help"
   end
 end
