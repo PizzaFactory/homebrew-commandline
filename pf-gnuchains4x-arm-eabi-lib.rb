@@ -58,8 +58,4 @@ class PfGnuchains4xArmEabiLib < Formula
     man7.rmtree
     include.rmtree
   end
-
-  test do
-    system "#{target}-gcc", "--help"
-  end
 end

@@ -56,8 +56,4 @@ class PfGnuchains4xAvrElfLib < Formula
       end
     end
   end
-
-  test do
-    system "#{target}-gcc", "--help"
-  end
 end

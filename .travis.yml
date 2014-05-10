@@ -36,7 +36,7 @@ env:
 script:
 - brew audit $PACKAGE
 - brew install --build-bottle -v $PACKAGE
-- brew test $PACKAGE
+#- brew test $PACKAGE
 - bottled_file=$(brew bottle $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3); print $3}')
 deploy:
   edge: true
