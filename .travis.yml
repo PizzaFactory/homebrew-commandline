@@ -7,11 +7,12 @@ before_install:
 - brew update
 install:
 - mkdir -p $(brew --repo)/Library/Taps
-- ln -s $PWD $(brew --repo)/Library/Taps/travis-testtap
 - brew tap $TRAVIS_REPO_SLUG
+- cd $(brew --repo)/Library/Taps/$(echo $TRAVIS_REPO_SLUG | tr '[:upper:]' '[:lower:]')
+- git checkout -b gnuchains-tools origin/gnuchains-tools
+- brew tap --repair
 env:
   matrix:
-  - PACKAGE=urjtag
   - PACKAGE=pf-gnuchains4x-arm-eabi-tools
   - PACKAGE=pf-gnuchains4x-arm-elf-tools
   - PACKAGE=pf-gnuchains4x-avr-elf-tools
