@@ -8,7 +8,7 @@ class PfGnuchains4xMicroblazeElf < Formula
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
+    sha1 "496f8854f3e0a8ffe360f42ef875e09913f4fdee" => :mavericks
   end
 
   depends_on :autoconf => :build
