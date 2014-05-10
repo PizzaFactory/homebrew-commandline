@@ -56,8 +56,4 @@ class PfGnuchains4xMips64ToppershrpLib < Formula
       end
     end
   end
-
-  test do
-    system "#{target}-gcc", "--help"
-  end
 end

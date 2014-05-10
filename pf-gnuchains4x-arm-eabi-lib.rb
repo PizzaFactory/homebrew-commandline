@@ -28,8 +28,4 @@ class PfGnuchains4xArmEabiLib < Formula
       cp_r "#{version}/share", prefix
     end
   end
-
-  test do
-    system "#{target}-gcc", "--help"
-  end
 end
