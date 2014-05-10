@@ -58,6 +58,6 @@ class PfGnuchains4xAvrElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "avr-pizzafactory-elf-gcc", "--help"
   end
 end

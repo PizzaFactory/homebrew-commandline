@@ -53,6 +53,6 @@ class PfGnuchains4xNios2ElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "nios2-pizzafactory-elf-gcc", "--help"
   end
 end

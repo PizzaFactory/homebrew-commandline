@@ -58,6 +58,6 @@ class PfGnuchains4xPowerpcElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "powerpc-pizzafactory-elf-gcc", "--help"
   end
 end

@@ -59,6 +59,6 @@ class PfGnuchains4xShElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "sh-pizzafactory-elf-gcc", "--help"
   end
 end

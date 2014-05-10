@@ -58,6 +58,6 @@ class PfGnuchains4xArmEabiTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "arm-pizzafactory-eabi-gcc", "--help"
   end
 end

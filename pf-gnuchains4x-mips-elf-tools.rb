@@ -58,6 +58,6 @@ class PfGnuchains4xMipsElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "mips-pizzafactory-elf-gcc", "--help"
   end
 end

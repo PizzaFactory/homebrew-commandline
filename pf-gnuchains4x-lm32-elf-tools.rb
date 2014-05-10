@@ -58,6 +58,6 @@ class PfGnuchains4xLm32ElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "lm32-pizzafactory-elf-gcc", "--help"
   end
 end

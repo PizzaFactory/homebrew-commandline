@@ -58,6 +58,6 @@ class PfGnuchains4xMicroblazeElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "microblaze-pizzafactory-elf-gcc", "--help"
   end
 end

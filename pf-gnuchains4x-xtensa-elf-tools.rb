@@ -58,6 +58,6 @@ class PfGnuchains4xXtensaElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "xtensa-pizzafactory-elf-gcc", "--help"
   end
 end

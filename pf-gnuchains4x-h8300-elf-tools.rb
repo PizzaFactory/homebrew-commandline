@@ -58,6 +58,6 @@ class PfGnuchains4xH8300ElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "h8300-pizzafactory-elf-gcc", "--help"
   end
 end

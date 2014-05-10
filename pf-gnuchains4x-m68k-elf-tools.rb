@@ -58,6 +58,6 @@ class PfGnuchains4xM68kElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "m68k-pizzafactory-elf-gcc", "--help"
   end
 end

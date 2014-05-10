@@ -58,6 +58,6 @@ class PfGnuchains4xV850ElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "v850-pizzafactory-elf-gcc", "--help"
   end
 end

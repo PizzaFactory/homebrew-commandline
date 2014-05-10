@@ -58,6 +58,6 @@ class PfGnuchains4xXstormy16ElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "xstormy16-pizzafactory-elf-gcc", "--help"
   end
 end

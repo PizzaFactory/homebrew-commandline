@@ -58,6 +58,6 @@ class PfGnuchains4xMips64ToppershrpTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "mips64-pizzafactory-toppershrp-gcc", "--help"
   end
 end

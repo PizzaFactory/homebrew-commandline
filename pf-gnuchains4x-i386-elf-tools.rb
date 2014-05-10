@@ -58,6 +58,6 @@ class PfGnuchains4xI386ElfTools < Formula
   end
 
   test do
-    system "#{target}-gcc", "--help"
+    system "i386-pizzafactory-elf-gcc", "--help"
   end
 end
