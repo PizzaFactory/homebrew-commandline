@@ -2,12 +2,10 @@ language: objective-c
 rvm: 1.9.3-p545 --create
 branches:
   only:
-  - "/release-/"
+  - /release-/
 before_install:
 - brew update
 install:
-- mkdir -p $(brew --repo)/Library/Taps
-- ln -s $PWD $(brew --repo)/Library/Taps/travis-testtap
 - brew tap $TRAVIS_REPO_SLUG
 env:
   matrix:
@@ -41,32 +39,43 @@ script:
 - brew audit $PACKAGE
 - brew install --build-bottle -v $PACKAGE
 - brew test $PACKAGE
-- bottled_file=$(brew bottle $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3); print $3}')
+- bottled_file=$(brew bottle --rb $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3);
+  print $3}')
 deploy:
   edge: true
   provider: releases
   api-key:
   - secure: MSmHrVWM6aAOfohOZc7fsfUKISYkjmZMlfv5uqcuUS1/c6E2ExYFyC9A/CSrc8VwjdlDf+nMtl/CZwNLLsf70eNajAhQFxFgDqFr/ScZXR8CaALceeTsLlm8nQpaMSDzDBNzbQV3BU+RiVMT1Zi5MtEexOYQabeoEa3/gmXxwzA=
-  file: "$bottled_file"
+  file: $bottled_file
   skip_cleanup: true
   on:
     tags: true
     all_branches: true
 after_deploy:
-- bottle_rb=$(pwd)/*.bottle.rb
-- perl -pi -e 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$(git tag --points-at HEAD)'"|' $bottle_rb
+# Add root_url
+- "bottle_rb=$(pwd)/*.bottle.rb"
 - echo $bottle_rb
 - cat $bottle_rb
+# decrypt a key
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config
 - openssl aes-256-cbc -k "$SERVER_KEY" -in .travis/deploy_key.enc -d -a -out deploy.key
 - cp deploy.key ~/.ssh/
 - chmod 600 ~/.ssh/deploy.key
+# Update the formula
+- tag=$(git tag --points-at HEAD)
 - cd $(brew --prefix)/Library/Taps/pizzafactory/homebrew-commandline/
+- echo 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$tag'"|' > perl_script
 - git remote add github-push git@github.com:PizzaFactory/homebrew-commandline.git
 - git pull
 - brew bottle --merge --write $bottle_rb
+# Hack start>>>>
+- perl -pi perl_script $PACKAGE.rb
+- git add $PACKAGE.rb
+- git commit --amend -C HEAD
+# <<<<Hack end
 - git pull
 - git push github-push --all
+# to make sure...
 - git pull
 - git push github-push --all
 - git pull
