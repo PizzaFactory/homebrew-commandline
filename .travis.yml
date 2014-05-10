@@ -45,7 +45,7 @@ deploy:
   edge: true
   provider: releases
   api-key:
-  - secure:KSxUOxDlEBc4SzlSpI3Y4zkss5iX0bYlmaqJCQyUE6lwDcZM1skdTc5JMSCA8iPxzTGnJ7KbYUxpigwpE0r3JyYiXZOJQyXIg/gZ1XEDrXBif3vda8l1sOxYaoajh300arcV+RtKj4F8VmmdM1jjywYRazWpVpWmewtG0u/b+pM=
+  - secure: McgbuPp1Wva9i0tch4gqxRfNjg9Wbclu1feJ1f0AxWaVbX1tJuQVhq4NLQX12mfvTRqZGrZaxVpmUpEFrbOah9x/dvl4V4LxwAMO9xvMCoX0GVdHEIeHK7gWWexSQQJKTvfX+k1Jl8jnn925k6f4VBd0fPWMyu3ClRe9iAs8+yw=
   file: "$bottled_file"
   skip_cleanup: true
   on:
