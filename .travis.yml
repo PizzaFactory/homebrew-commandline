@@ -11,30 +11,29 @@ install:
 - brew tap $TRAVIS_REPO_SLUG
 env:
   matrix:
-  - PACKAGE=urjtag
-  - PACKAGE=pf-gnuchains4x-arm-eabi-nolib
-  - PACKAGE=pf-gnuchains4x-arm-elf-nolib
-  - PACKAGE=pf-gnuchains4x-avr-elf-nolib
-  - PACKAGE=pf-gnuchains4x-bfin-elf-nolib
-#  - PACKAGE=pf-gnuchains4x-cr16-elf-nolib
-  - PACKAGE=pf-gnuchains4x-fr30-elf-nolib
-  - PACKAGE=pf-gnuchains4x-h8300-elf-nolib
-  - PACKAGE=pf-gnuchains4x-i386-elf-nolib
-  - PACKAGE=pf-gnuchains4x-lm32-elf-nolib
-  - PACKAGE=pf-gnuchains4x-m32c-elf-nolib
-  - PACKAGE=pf-gnuchains4x-m32r-elf-nolib
-  - PACKAGE=pf-gnuchains4x-m68k-elf-nolib
-  - PACKAGE=pf-gnuchains4x-microblaze-elf-nolib
-  - PACKAGE=pf-gnuchains4x-mips-elf-nolib
-  - PACKAGE=pf-gnuchains4x-mips64-elf-nolib
-  - PACKAGE=pf-gnuchains4x-mips64-toppershrp-nolib
-  - PACKAGE=pf-gnuchains4x-nios2-elf-nolib
-  - PACKAGE=pf-gnuchains4x-powerpc-elf-nolib
-  - PACKAGE=pf-gnuchains4x-rx-elf-nolib
-  - PACKAGE=pf-gnuchains4x-sh-elf-nolib
-  - PACKAGE=pf-gnuchains4x-v850-elf-nolib
-  - PACKAGE=pf-gnuchains4x-xstormy16-elf-nolib
-  - PACKAGE=pf-gnuchains4x-xtensa-elf-nolib
+  - PACKAGE=pf-gnuchains4x-arm-eabi-lib
+  - PACKAGE=pf-gnuchains4x-arm-elf-lib
+  - PACKAGE=pf-gnuchains4x-avr-elf-lib
+  - PACKAGE=pf-gnuchains4x-bfin-elf-lib
+#  - PACKAGE=pf-gnuchains4x-cr16-elf-lib
+  - PACKAGE=pf-gnuchains4x-fr30-elf-lib
+  - PACKAGE=pf-gnuchains4x-h8300-elf-lib
+  - PACKAGE=pf-gnuchains4x-i386-elf-lib
+  - PACKAGE=pf-gnuchains4x-lm32-elf-lib
+  - PACKAGE=pf-gnuchains4x-m32c-elf-lib
+  - PACKAGE=pf-gnuchains4x-m32r-elf-lib
+  - PACKAGE=pf-gnuchains4x-m68k-elf-lib
+  - PACKAGE=pf-gnuchains4x-microblaze-elf-lib
+  - PACKAGE=pf-gnuchains4x-mips-elf-lib
+  - PACKAGE=pf-gnuchains4x-mips64-elf-lib
+  - PACKAGE=pf-gnuchains4x-mips64-toppershrp-lib
+  - PACKAGE=pf-gnuchains4x-nios2-elf-lib
+  - PACKAGE=pf-gnuchains4x-powerpc-elf-lib
+  - PACKAGE=pf-gnuchains4x-rx-elf-lib
+  - PACKAGE=pf-gnuchains4x-sh-elf-lib
+  - PACKAGE=pf-gnuchains4x-v850-elf-lib
+  - PACKAGE=pf-gnuchains4x-xstormy16-elf-lib
+  - PACKAGE=pf-gnuchains4x-xtensa-elf-lib
   global:
     secure: ChhAvkF13Jp9wNDCMx64eYC2MXQqM+SpO76FJXPGntoyHSlV8B9qu1KEcXU+d6LJVSWVki4d1N0B3cmfXn1vg2N8EY5hyohDt/IBYYHz/u+bbAMcrieKA1UATzP3/TVt0y0jGwmsti2iSECLgGRqqw1n/1jP1Udgfha/AaU7Z/A=
 script:
