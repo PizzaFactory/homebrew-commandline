@@ -1,5 +1,8 @@
 language: objective-c
-rvm: 1.9.3-p545 do rvm gemset create
+rvm: 1.9.3-p545 --create
+branches:
+  only:
+  - "/release-/"
 before_install:
 - brew update
 install:
@@ -33,6 +36,7 @@ env:
   - PACKAGE=pf-gnuchains4x-xstormy16-elf
   - PACKAGE=pf-gnuchains4x-xtensa-elf
   global:
+    secure: ChhAvkF13Jp9wNDCMx64eYC2MXQqM+SpO76FJXPGntoyHSlV8B9qu1KEcXU+d6LJVSWVki4d1N0B3cmfXn1vg2N8EY5hyohDt/IBYYHz/u+bbAMcrieKA1UATzP3/TVt0y0jGwmsti2iSECLgGRqqw1n/1jP1Udgfha/AaU7Z/A=
 script:
 - brew audit $PACKAGE
 - brew install --build-bottle -v $PACKAGE
@@ -42,8 +46,28 @@ deploy:
   edge: true
   provider: releases
   api-key:
-    - secure:KSxUOxDlEBc4SzlSpI3Y4zkss5iX0bYlmaqJCQyUE6lwDcZM1skdTc5JMSCA8iPxzTGnJ7KbYUxpigwpE0r3JyYiXZOJQyXIg/gZ1XEDrXBif3vda8l1sOxYaoajh300arcV+RtKj4F8VmmdM1jjywYRazWpVpWmewtG0u/b+pM=
-  file: $bottled_file
+  - secure:KSxUOxDlEBc4SzlSpI3Y4zkss5iX0bYlmaqJCQyUE6lwDcZM1skdTc5JMSCA8iPxzTGnJ7KbYUxpigwpE0r3JyYiXZOJQyXIg/gZ1XEDrXBif3vda8l1sOxYaoajh300arcV+RtKj4F8VmmdM1jjywYRazWpVpWmewtG0u/b+pM=
+  file: "$bottled_file"
+  skip_cleanup: true
   on:
     tags: true
     all_branches: true
+after_deploy:
+- bottle_rb=$(pwd)/*.bottle.rb
+- perl -pi -e 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$(git tag --points-at HEAD)'"|' $bottle_rb
+- echo $bottle_rb
+- cat $bottle_rb
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config
+- openssl aes-256-cbc -k "$SERVER_KEY" -in .travis/deploy_key.enc -d -a -out deploy.key
+- cp deploy.key ~/.ssh/
+- chmod 600 ~/.ssh/deploy.key
+- cd $(brew --prefix)/Library/Taps/pizzafactory/homebrew-commandline/
+- git remote add github-push git@github.com:PizzaFactory/homebrew-commandline.git
+- git pull
+- brew bottle --merge --write $bottle_rb
+- git pull
+- git push github-push --all
+- git pull
+- git push github-push --all
+- git pull
+- git push github-push --all
