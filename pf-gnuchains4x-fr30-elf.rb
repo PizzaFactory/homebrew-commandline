@@ -8,6 +8,7 @@ class PfGnuchains4xFr30Elf < Formula
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
   bottle do
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
     sha1 "6488c40be85f23a9ac55c8c1cba5c17d771700c6" => :mavericks
   end
 
