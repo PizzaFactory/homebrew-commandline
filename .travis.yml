@@ -37,7 +37,7 @@ env:
     secure: ChhAvkF13Jp9wNDCMx64eYC2MXQqM+SpO76FJXPGntoyHSlV8B9qu1KEcXU+d6LJVSWVki4d1N0B3cmfXn1vg2N8EY5hyohDt/IBYYHz/u+bbAMcrieKA1UATzP3/TVt0y0jGwmsti2iSECLgGRqqw1n/1jP1Udgfha/AaU7Z/A=
 script:
 - brew audit $PACKAGE
-- brew install --build-bottle -v $PACKAGE
+- brew install --build-bottle $PACKAGE
 - brew test $PACKAGE
 - bottled_file=$(brew bottle --rb $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3);
   print $3}')
