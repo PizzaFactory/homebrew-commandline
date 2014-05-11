@@ -9,19 +9,19 @@ class PfGnuchains4xRxElf < Formula
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
+    sha1 "70959cd8b1b08e0f620f7b213fe71b9094a7345d" => :mavericks
   end
 
   depends_on :autoconf => :build
   depends_on :automake => :build
-  depends_on :libtool => :build
-
+  depends_on :libtool  => :build
 
   def install
     ENV.j1
 
     system "sh 00pizza-generate-link.sh"
-    attr :target
-  target='rx-pizzafactory-elf'
+
+    target='rx-pizzafactory-elf'
 
     Dir.mkdir 'build'
     cd 'build' do
@@ -51,6 +51,7 @@ class PfGnuchains4xRxElf < Formula
     end
     man7.rmtree
     include.rmtree
+
     resource("libs").stage do
       cd Dir['*'][0] do
         cp_r 'share', prefix
