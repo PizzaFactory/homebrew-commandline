@@ -7,6 +7,11 @@ class PfGnuchains4xMips64Elf < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
+  patch do
+    url 'https://sourceware.org/bugzilla/attachment.cgi?id=7544'
+    sha1 '26b41944f6afda0a4b1aeb6c59c601a614879f68'
+  end
+
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
     sha1 "aba1ff453829c7aaa782f74655b105faaf5e9def" => :mavericks
