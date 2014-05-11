@@ -35,7 +35,7 @@ env:
   - PACKAGE=pf-gnuchains4x-xstormy16-elf
   - PACKAGE=pf-gnuchains4x-xtensa-elf
   global:
-    secure: ChhAvkF13Jp9wNDCMx64eYC2MXQqM+SpO76FJXPGntoyHSlV8B9qu1KEcXU+d6LJVSWVki4d1N0B3cmfXn1vg2N8EY5hyohDt/IBYYHz/u+bbAMcrieKA1UATzP3/TVt0y0jGwmsti2iSECLgGRqqw1n/1jP1Udgfha/AaU7Z/A=
+    secure: W45EELxImy/4VWYGIAMYRp23onrw6Bu/ALMA45MneHigTLdsiKMb2DgzJ1NVCGRnk3Yvl0LlBmWDJyz6FVerDm6fBplyN82BF3Q1gV2FrDcnkAvbz1nKshTbuQNLXYQ108qhCHJV/WTsycglKfYeLzmMrViE3vq69eozp8Qu2G8=
 script:
 - brew audit $PACKAGE
 - brew install --build-bottle $PACKAGE
