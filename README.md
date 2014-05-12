@@ -3,6 +3,8 @@ PizzaFactory/homebrew-commandline
 These formulae provides tool collection for embeddians.
 Some tools are patched by [PizzaFactory project](http://www.pizzafactory.jp/).
 
+[![Build Status](https://travis-ci.org/PizzaFactory/homebrew-commandline.svg?branch=master)](https://travis-ci.org/PizzaFactory/homebrew-commandline)
+
 How do I install these formulae?
 --------------------------------
 Just `brew tap PizzaFactory/commandline` and then `brew install <formula>`.
