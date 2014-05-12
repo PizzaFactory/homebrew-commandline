@@ -2,26 +2,31 @@ require "formula"
 
 class PfGnuchains4xRxElf < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-4.6.4-20140510.tar.gz'
-  sha1 'fae858be80b6ae3783613e5967ac474f6c61da6d'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140512.tar.gz'
+  sha1 '55efd85ba1a78c98fb65ce309ce454c8e38aec09'
 
-  head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
+  head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
+
+  patch do
+    url 'https://sourceware.org/bugzilla/attachment.cgi?id=7544'
+    sha1 '26b41944f6afda0a4b1aeb6c59c601a614879f68'
+  end
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
+    sha1 "70959cd8b1b08e0f620f7b213fe71b9094a7345d" => :mavericks
   end
 
   depends_on :autoconf => :build
   depends_on :automake => :build
-  depends_on :libtool => :build
-
+  depends_on :libtool  => :build
 
   def install
     ENV.j1
 
     system "sh 00pizza-generate-link.sh"
-    attr :target
-  target='rx-pizzafactory-elf'
+
+    target='rx-pizzafactory-elf'
 
     Dir.mkdir 'build'
     cd 'build' do
@@ -51,6 +56,7 @@ class PfGnuchains4xRxElf < Formula
     end
     man7.rmtree
     include.rmtree
+
     resource("libs").stage do
       cd Dir['*'][0] do
         cp_r 'share', prefix

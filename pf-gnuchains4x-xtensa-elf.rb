@@ -2,10 +2,10 @@ require "formula"
 
 class PfGnuchains4xXtensaElf < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-4.6.4-20140510.tar.gz'
-  sha1 'fae858be80b6ae3783613e5967ac474f6c61da6d'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140512.tar.gz'
+  sha1 '55efd85ba1a78c98fb65ce309ce454c8e38aec09'
 
-  head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
+  head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
