@@ -3,7 +3,7 @@ require "formula"
 class PfGnuchains4xMips64Toppershrp < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-4.6.4-20140511.tar.gz'
-  sha1 'fae858be80b6ae3783613e5967ac474f6c61da6d'
+  sha1 '97e76db2abcb1dc174354e43f31284b481562445'
 
   head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
 
