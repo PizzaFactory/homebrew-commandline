@@ -37,6 +37,8 @@ class PfGnuchains4xArmEabiTools < Formula
                             "--enable-interwork",
                             "--enable-multilib",
                             "--with-newlib",
+                            "--without-ppl",
+                            "--without-cloog",
                             "--without-headers",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",

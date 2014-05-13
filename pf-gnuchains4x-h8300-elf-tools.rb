@@ -42,6 +42,8 @@ class PfGnuchains4xH8300ElfTools < Formula
                             "--enable-interwork",
                             "--enable-multilib",
                             "--with-newlib",
+                            "--without-ppl",
+                            "--without-cloog",
                             "--without-headers",
                             "--enable-languages=c",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
