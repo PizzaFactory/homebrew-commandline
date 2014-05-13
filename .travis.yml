@@ -64,6 +64,7 @@ after_deploy:
 # Update the formula
 - tag=$(git tag --points-at HEAD)
 - cd $(brew --prefix)/Library/Taps/pizzafactory/homebrew-commandline/
+- git checkout -b gnuchains-tools origin/gnuchains-tools
 - echo 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$tag'"|' > perl_script
 - git remote add github-push git@github.com:PizzaFactory/homebrew-commandline.git
 - git pull
