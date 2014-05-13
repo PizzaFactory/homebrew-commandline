@@ -73,10 +73,10 @@ after_deploy:
 - git add $PACKAGE.rb
 - git commit --amend -C HEAD
 # <<<<Hack end
-- git pull
+- git pull --rebase
 - git push github-push --all
 # to make sure...
-- git pull
+- git pull --rebase
 - git push github-push --all
-- git pull
+- git pull --rebase
 - git push github-push --all
