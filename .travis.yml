@@ -2,15 +2,12 @@ language: objective-c
 rvm: 1.9.3-p545 --create
 branches:
   only:
-  - "/release-/"
+  - /release-/
 before_install:
 - brew update
 install:
 - mkdir -p $(brew --repo)/Library/Taps
 - brew tap $TRAVIS_REPO_SLUG
-- cd $(brew --repo)/Library/Taps/$(echo $TRAVIS_REPO_SLUG | tr '[:upper:]' '[:lower:]')
-- git checkout -b gnuchains-tools origin/gnuchains-tools
-- brew tap --repair
 env:
   matrix:
   - PACKAGE=pf-gnuchains4x-arm-eabi-tools
@@ -49,26 +46,36 @@ deploy:
   provider: releases
   api-key:
   - secure: PwKJFynBZ8tK6ScOM5NCEv39JDVGupIrChiR6gyPlzwE2Q64OivmrM/N5IXIZYJyIh7ZHZ7eVOxTbVCmJZxLj1kMD4W+jj94y3HCaRog+eJRG2vapd+EtatCZFdrF2ccnWzO31hu3vLtZCIs3nD/vb0NyYexswJ3zzEcuqAp4iU=
-  file: "$bottled_file"
+  file: $bottled_file
   skip_cleanup: true
   on:
     tags: true
     all_branches: true
 after_deploy:
-- bottle_rb=$(pwd)/*.bottle.rb
-- perl -pi -e 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$(git tag --points-at HEAD)'"|' $bottle_rb
+# Add root_url
+- "bottle_rb=$(pwd)/*.bottle.rb"
 - echo $bottle_rb
 - cat $bottle_rb
+# decrypt a key
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config
 - openssl aes-256-cbc -k "$SERVER_KEY" -in .travis/deploy_key.enc -d -a -out deploy.key
 - cp deploy.key ~/.ssh/
 - chmod 600 ~/.ssh/deploy.key
+# Update the formula
+- tag=$(git tag --points-at HEAD)
 - cd $(brew --prefix)/Library/Taps/pizzafactory/homebrew-commandline/
+- echo 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$tag'"|' > perl_script
 - git remote add github-push git@github.com:PizzaFactory/homebrew-commandline.git
 - git pull
 - brew bottle --merge --write $bottle_rb
+# Hack start>>>>
+- perl -pi perl_script $PACKAGE.rb
+- git add $PACKAGE.rb
+- git commit --amend -C HEAD
+# <<<<Hack end
 - git pull
 - git push github-push --all
+# to make sure...
 - git pull
 - git push github-push --all
 - git pull
