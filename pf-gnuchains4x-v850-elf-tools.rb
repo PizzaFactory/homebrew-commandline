@@ -7,11 +7,6 @@ class PfGnuchains4xV850ElfTools < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
-  patch do
-    url 'https://sourceware.org/bugzilla/attachment.cgi?id=7544'
-    sha1 '26b41944f6afda0a4b1aeb6c59c601a614879f68'
-  end
-
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-tools-0.0"
     sha1 "771c0bd3f5ff8271f665f51e8de955f8fdb9307c" => :mavericks
