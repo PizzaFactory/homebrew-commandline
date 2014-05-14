@@ -2,8 +2,8 @@ require "formula"
 
 class PfGnuchains4xArmElfTools < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140513.tar.gz'
-  sha1 'c40286bf6b0c555f62334a6a15f656790cf4ddda'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140514.tar.gz'
+  sha1 '2c4a5182b67818f41aff703161f760da5afdf488'
 
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
