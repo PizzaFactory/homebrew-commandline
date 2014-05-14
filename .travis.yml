@@ -2,12 +2,11 @@ language: objective-c
 rvm: 1.9.3-p545 --create
 branches:
   only:
-  - "/release-/"
+  - /release-/
 before_install:
 - brew update
 install:
 - mkdir -p $(brew --repo)/Library/Taps
-- ln -s $PWD $(brew --repo)/Library/Taps/travis-testtap
 - brew tap $TRAVIS_REPO_SLUG
 env:
   matrix:
@@ -35,12 +34,13 @@ env:
   - PACKAGE=pf-gnuchains4x-xstormy16-elf-lib
   - PACKAGE=pf-gnuchains4x-xtensa-elf-lib
   global:
-    secure: ChhAvkF13Jp9wNDCMx64eYC2MXQqM+SpO76FJXPGntoyHSlV8B9qu1KEcXU+d6LJVSWVki4d1N0B3cmfXn1vg2N8EY5hyohDt/IBYYHz/u+bbAMcrieKA1UATzP3/TVt0y0jGwmsti2iSECLgGRqqw1n/1jP1Udgfha/AaU7Z/A=
+    secure: eyjnztPwfyykADsbJu5Wv+KLTOhyC2rhj/VSW5iIiyc5Wqe+D7EdgjD8esXm5oJBnXEdgoxydLKY2keBNjUX+VRJWF66Qs4T9X+vmEiX+ONaziZIiARN0jRyIR7dcGNjEdUE7U7Z7CNH4G8raFeibo9wg5N2XnuM3XhDXINjavo=
 script:
-- brew audit $PACKAGE
-- brew install --build-bottle -v $PACKAGE
-#- brew test $PACKAGE
-- bottled_file=$(brew bottle $PACKAGE | head -1 | awk '{ gsub(/...$/, "", $3); print $3}')
+- brew audit $PACKAGE.rb
+- travis_wait 50 brew install --build-bottle $PACKAGE.rb
+- brew test $PACKAGE.rb
+- bottled_file=$(brew bottle --rb $PACKAGE.rb | head -1 | awk '{ gsub(/...$/, "", $3);
+  print $3}')
 deploy:
   edge: true
   provider: releases
@@ -52,21 +52,33 @@ deploy:
     tags: true
     all_branches: true
 after_deploy:
-- bottle_rb=$(pwd)/*.bottle.rb
-- perl -pi -e 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$(git tag --points-at HEAD)'"|' $bottle_rb
+# Add root_url
+- "bottle_rb=$(pwd)/*.bottle.rb"
 - echo $bottle_rb
 - cat $bottle_rb
+# decrypt a key
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config
 - openssl aes-256-cbc -k "$SERVER_KEY" -in .travis/deploy_key.enc -d -a -out deploy.key
 - cp deploy.key ~/.ssh/
 - chmod 600 ~/.ssh/deploy.key
+# Update the formula
+- tag=$(git tag --points-at HEAD)
 - cd $(brew --prefix)/Library/Taps/pizzafactory/homebrew-commandline/
+- git checkout -b gnuchains-libs origin/gnuchains-libs
+- brew tap --repair
+- echo 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$tag'"|' > perl_script
 - git remote add github-push git@github.com:PizzaFactory/homebrew-commandline.git
 - git pull
 - brew bottle --merge --write $bottle_rb
-- git pull
+# Hack start>>>>
+- perl -pi perl_script $PACKAGE.rb
+- git add $PACKAGE.rb
+- git commit --amend -C HEAD
+# <<<<Hack end
+- git pull --rebase
 - git push github-push --all
-- git pull
+# to make sure...
+- git pull --rebase
 - git push github-push --all
-- git pull
+- git pull --rebase
 - git push github-push --all
