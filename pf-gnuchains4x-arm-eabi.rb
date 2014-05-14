@@ -2,8 +2,8 @@ require "formula"
 
 class PfGnuchains4xArmEabi < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140512.tar.gz'
-  sha1 '55efd85ba1a78c98fb65ce309ce454c8e38aec09'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140514.tar.gz'
+  sha1 '2c4a5182b67818f41aff703161f760da5afdf488'
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
@@ -38,6 +38,8 @@ class PfGnuchains4xArmEabi < Formula
                             "--enable-multilib",
                             "--with-newlib",
                             "--without-headers",
+                            "--without-ppl",
+                            "--without-cloog",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
