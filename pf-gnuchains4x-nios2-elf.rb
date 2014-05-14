@@ -1,6 +1,6 @@
 require "formula"
 
-class PfGnuchains4xMicroblazeElf < Formula
+class PfGnuchains4xNios2Elf < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140514.tar.gz'
   sha1 '2c4a5182b67818f41aff703161f760da5afdf488'
@@ -8,8 +8,6 @@ class PfGnuchains4xMicroblazeElf < Formula
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
-    sha1 "496f8854f3e0a8ffe360f42ef875e09913f4fdee" => :mavericks
   end
 
   depends_on :autoconf => :build
@@ -19,9 +17,9 @@ class PfGnuchains4xMicroblazeElf < Formula
   def install
     ENV.j1
 
-    system "sh 00pizza-generate-link.sh"
+    target='nios2-pizzafactory-elf'
 
-    target='microblaze-pizzafactory-elf'
+    system "sh 00pizza-generate-link.sh"
 
     Dir.mkdir 'build'
     cd 'build' do
@@ -62,11 +60,11 @@ class PfGnuchains4xMicroblazeElf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-microblaze-elf-lib-20140428.mavericks.bottle.tar.gz'
-    sha1 'd6a2a264797dc2b07b8cef2835895d8ebaa27551' #sha1-lib-
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-nios2-elf-lib-20140428.mavericks.bottle.tar.gz'
+    sha1 '56c9b86e9b9d5dd1bee62f4f38ff5ff3c4697f7b' #sha1-lib-
   end
 
   test do
-    system "microblaze-pizzafactory-elf-gcc", "--help"
+    system "nios2-pizzafactory-elf-gcc", "--help"
   end
 end
