@@ -2,10 +2,10 @@ require "formula"
 
 class PfGnuchains4xFr30ElfLib < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf3gnuchains4x/downloads/pf3gnuchains4x-20140428.tgz'
-  sha1 '217c2e3f3bdb6729e1e75b1a6eb6a03a04b6bf69'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140514.tar.gz'
+  sha1 '2c4a5182b67818f41aff703161f760da5afdf488'
 
-  head 'http://bitbucket.org/pizzafactory/pf3gnuchains4x.git'
+  head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   depends_on :autoconf => :build
   depends_on :automake => :build
@@ -45,14 +45,10 @@ class PfGnuchains4xFr30ElfLib < Formula
                             "--disable-sim"
 
       [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
-        ohai "Building #{t}..."
-        %x[make all-#{t}]
-        ohai "Building #{t}...finished."
+        system 'make', "all-#{t}"
       end
       [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
-        ohai "Installing #{t}..."
-        %x[make install-#{t}]
-        ohai "Installing #{t}...finished."
+        system 'make', "install-#{t}"
       end
     end
   end
