@@ -7,6 +7,9 @@ class PfGnuchains4xXtensaElfLib < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
+  bottle do
+  end
+
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool  => :build
