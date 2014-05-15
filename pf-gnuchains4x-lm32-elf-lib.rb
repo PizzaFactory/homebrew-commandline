@@ -37,6 +37,8 @@ class PfGnuchains4xLm32ElfLib < Formula
                             "--enable-multilib",
                             "--with-newlib",
                             "--without-headers",
+                            "--without-ppl",
+                            "--without-cloog",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
