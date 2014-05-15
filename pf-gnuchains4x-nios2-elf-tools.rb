@@ -46,7 +46,7 @@ class PfGnuchains4xNios2ElfTools < Formula
         system 'make', "all-#{t}"
       end
       [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
-        system make, "install-#{t}"
+        system 'make', "install-#{t}"
       end
     end
     man7.rmtree
