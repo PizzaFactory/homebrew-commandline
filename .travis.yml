@@ -11,6 +11,7 @@ install:
 - cd $(brew --repo)/Library/Taps/$(echo $TRAVIS_REPO_SLUG | tr '[:upper:]' '[:lower:]')
 - git checkout -b gnuchains-tools origin/gnuchains-tools
 - brew tap --repair
+- cd -
 env:
   matrix:
   - PACKAGE=pf-gnuchains4x-arm-eabi-lib
