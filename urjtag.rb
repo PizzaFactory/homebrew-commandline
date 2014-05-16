@@ -2,8 +2,8 @@ require "formula"
 
 class Urjtag < Formula
   homepage "http://urjtag.org/"
-  url 'ftp://ftp.jaist.ac.jp/pub/sourceforge/u/ur/urjtag/urjtag/0.10/urjtag-0.10.tar.bz2'
-  sha1 "f44e666ae484f5a7e3b50574db84df646a8d9fdb"
+  url 'https://github.com/pf3gnuchains/urjtag/archive/pf-urjtag-0.10.20140516.tar.gz'
+  sha1 "b41153c2329c12edbb02e89ef6ec6a8b14f6f235"
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-beta2-2"
