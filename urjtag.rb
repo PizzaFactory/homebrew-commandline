@@ -13,7 +13,7 @@ class Urjtag < Formula
 
   depends_on "libusb"
   depends_on "libusb-compat"
-  depends_on "libftdi"
+  depends_on "libftdi0"
 
   def install
 
