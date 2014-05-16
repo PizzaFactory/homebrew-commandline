@@ -38,7 +38,7 @@ env:
     secure: W45EELxImy/4VWYGIAMYRp23onrw6Bu/ALMA45MneHigTLdsiKMb2DgzJ1NVCGRnk3Yvl0LlBmWDJyz6FVerDm6fBplyN82BF3Q1gV2FrDcnkAvbz1nKshTbuQNLXYQ108qhCHJV/WTsycglKfYeLzmMrViE3vq69eozp8Qu2G8=
 script:
 - brew audit $PACKAGE.rb
-- brew install --build-bottle $PACKAGE.rb
+- travis_wait 50 brew install --build-bottle $PACKAGE.rb
 - brew test $PACKAGE.rb
 - bottled_file=$(brew bottle --rb $PACKAGE.rb | head -1 | awk '{ gsub(/...$/, "", $3);
   print $3}')
