@@ -25,6 +25,7 @@ class PfGnuchains4xArmElfLib < Formula
     Dir.mkdir 'build'
     cd 'build' do
       system "../configure", "--quiet",
+                            "--enable-obsolete",
                             "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
