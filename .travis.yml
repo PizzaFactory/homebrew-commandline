@@ -42,7 +42,7 @@ env:
 script:
 - brew audit $PACKAGE.rb
 - travis_wait 50 brew install --build-bottle $PACKAGE.rb
-- brew test $PACKAGE.rb
+#- brew test $PACKAGE.rb
 - bottled_file=$(brew bottle --rb $PACKAGE.rb | head -1 | awk '{ gsub(/...$/, "", $3);
   print $3}')
 deploy:
