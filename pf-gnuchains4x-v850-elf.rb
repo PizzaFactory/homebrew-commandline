@@ -7,6 +7,12 @@ class PfGnuchains4xV850Elf < Formula
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
+  patch do
+    url 'https://sourceware.org/bugzilla/attachment.cgi?id=7604'
+    sha1 '0af6ab71e692c05a1a9906985030e2cad9310e0a'
+  end
+  patch :DATA
+
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
     sha1 "8232ffdc3f4e96d25945902416f250cd76b83fb8" => :mavericks
@@ -70,3 +76,17 @@ class PfGnuchains4xV850Elf < Formula
     system "v850-pizzafactory-elf-gcc", "--help"
   end
 end
+__END__
+diff --git a/gcc.git/gcc/config/v850/v850.h b/gcc.git/gcc/config/v850/v850.h
+index f5b64de..fcfe9aa 100644
+--- a/gcc.git/gcc/config/v850/v850.h
++++ b/gcc.git/gcc/config/v850/v850.h
+@@ -89,7 +89,7 @@ extern GTY(()) rtx v850_compare_op1;
+ 
+ #define TARGET_V850E2_ALL      (TARGET_V850E2 || TARGET_V850E2V3) 
+ 
+-#define ASM_SPEC "%{mv850es:-mv850e1}%{!mv850es:%{mv*:-mv%*}}"
++#define ASM_SPEC "-mgcc-abi %{mv850es:-mv850e1}%{!mv850es:%{mv*:-mv%*}}"
+ #define CPP_SPEC "\
+   %{mv850e2v3:-D__v850e2v3__} \
+   %{mv850e2:-D__v850e2__} \
