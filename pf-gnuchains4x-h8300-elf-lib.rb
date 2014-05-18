@@ -8,9 +8,9 @@ class PfGnuchains4xH8300ElfLib < Formula
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.5"
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.6"
     cellar :any
-    sha1 "bdf4897b5060164c68b61694beb29e1ef446316f" => :mavericks
+    sha1 "9a8a9f2cae6cfd73e18b2bcc1c85f6f56b92065b" => :mavericks
   end
 
   depends_on :autoconf => :build
