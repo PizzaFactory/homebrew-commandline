@@ -8,8 +8,8 @@ class PfGnuchains4xMips64ElfTools < Formula
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-tools-0.9"
-    sha1 "4478eaefef3b0a2ebb33203ae304e9ffb9bd94ff" => :mavericks
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-tools-0.10"
+    sha1 "88fca1c5c45e7b33bfd42184951e19b1ff50f69e" => :mavericks
   end
 
   depends_on :autoconf => :build
