@@ -10,6 +10,8 @@ class PfGnuchains4xV850ElfLib < Formula
   patch :DATA
 
   bottle do
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.6"
+    sha1 "e5fa9c06840014791f91ff33cc94743bbae68276" => :mavericks
   end
 
   depends_on :autoconf => :build
