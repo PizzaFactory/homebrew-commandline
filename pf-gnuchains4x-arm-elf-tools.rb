@@ -36,6 +36,7 @@ class PfGnuchains4xArmElfTools < Formula
                             "--disable-rda",
                             "--enable-interwork",
                             "--enable-multilib",
+                            "--enable-obsolete",
                             "--with-newlib",
                             "--without-ppl",
                             "--without-cloog",
