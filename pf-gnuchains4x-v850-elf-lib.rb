@@ -7,6 +7,8 @@ class PfGnuchains4xV850ElfLib < Formula
 
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
+  patch :DATA
+
   bottle do
   end
 
@@ -58,3 +60,17 @@ class PfGnuchains4xV850ElfLib < Formula
     end
   end
 end
+__END__
+diff --git a/gcc.git/gcc/config/v850/v850.h b/gcc.git/gcc/config/v850/v850.h
+index f5b64de..fcfe9aa 100644
+--- a/gcc.git/gcc/config/v850/v850.h
++++ b/gcc.git/gcc/config/v850/v850.h
+@@ -89,7 +89,7 @@ extern GTY(()) rtx v850_compare_op1;
+ 
+ #define TARGET_V850E2_ALL      (TARGET_V850E2 || TARGET_V850E2V3) 
+ 
+-#define ASM_SPEC "%{mv850es:-mv850e1}%{!mv850es:%{mv*:-mv%*}}"
++#define ASM_SPEC "-mgcc-abi %{mv850es:-mv850e1}%{!mv850es:%{mv*:-mv%*}}"
+ #define CPP_SPEC "\
+   %{mv850e2v3:-D__v850e2v3__} \
+   %{mv850e2:-D__v850e2__} \
