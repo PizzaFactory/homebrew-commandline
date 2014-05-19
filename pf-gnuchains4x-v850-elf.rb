@@ -7,10 +7,6 @@ class PfGnuchains4xV850Elf < Formula
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
-  patch do
-    url 'https://sourceware.org/bugzilla/attachment.cgi?id=7604'
-    sha1 '0af6ab71e692c05a1a9906985030e2cad9310e0a'
-  end
   patch :DATA
 
   bottle do
