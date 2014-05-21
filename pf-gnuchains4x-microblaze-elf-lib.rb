@@ -38,7 +38,7 @@ class PfGnuchains4xMicroblazeElfLib < Formula
                             "--enable-interwork",
                             "--enable-multilib",
                             "--with-newlib",
-                            "--without-headers",
+                            "--with-headers=`pwd`/../newlib/libc/include",
                             "--without-ppl",
                             "--without-cloog",
                             "--enable-languages=c,c++",
@@ -51,10 +51,10 @@ class PfGnuchains4xMicroblazeElfLib < Formula
                             "--disable-gdb",
                             "--disable-sim"
 
-      [ "gcc", "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "target-newlib", "target-libgloss", "target-libstdc++-v3" ].each do |t|
         system 'make', "all-#{t}"
       end
-      [ "target-libstdc++-v3", "target-newlib", "target-libgloss" ].each do |t|
+      [ "target-newlib", "target-libgloss", "target-libstdc++-v3" ].each do |t|
         system 'make', "install-#{t}"
       end
     end
