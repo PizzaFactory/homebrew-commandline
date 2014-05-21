@@ -6,8 +6,8 @@ class Urjtag < Formula
   sha1 "b41153c2329c12edbb02e89ef6ec6a8b14f6f235"
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-beta2-hostfix-7"
-    sha1 "f44d2b35dd9f8698d9c6b78d214e562869079bc9" => :mavericks
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
+    sha1 "edc1dff9b80e88911f59a3ede02d5ea2a3311b98" => :mavericks
   end
 
   depends_on "libusb"
