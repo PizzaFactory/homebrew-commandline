@@ -8,9 +8,9 @@ class KzH8write < Formula
   head 'git://git.sourceforge.jp/gitroot/kz-h8write/kz_h8write.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0"
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
     cellar :any
-    sha1 "8171e288bf0260715b36550a30364b1069b24aeb" => :mavericks
+    sha1 "c29f7d00e06ffa6370e6111187d95fefbe3b174b" => :mavericks
   end
 
   def install
