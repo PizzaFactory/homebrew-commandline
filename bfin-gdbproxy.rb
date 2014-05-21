@@ -6,9 +6,9 @@ class BfinGdbproxy < Formula
   sha1 "bc5aa99c7c851326b8ccb45a9bbe7bc5ab7d4502"
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-beta2-2"
-    revision 2
-    sha1 "29f210df007f0cb286b4cebb207f28a4ec0cd671" => :mavericks
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0"
+    cellar :any
+    sha1 "482aed4f92aa4798e00d803d90787d8073adca16" => :mavericks
   end
 
   depends_on "urjtag"
