@@ -69,17 +69,17 @@ after_deploy:
 - cd $(brew --prefix)/Library/Taps/pizzafactory/homebrew-commandline/
 - echo 's|bottle do$|bottle do\n    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/'$tag'"|' > perl_script
 - git remote add github-push git@github.com:PizzaFactory/homebrew-commandline.git
-- git pull
+- git pull --rebase
 - brew bottle --merge --write $bottle_rb
 # Hack start>>>>
 - perl -pi perl_script $PACKAGE.rb
 - git add $PACKAGE.rb
 - git commit --amend -C HEAD
 # <<<<Hack end
-- git pull
+- git pull --rebase
 - git push github-push --all
 # to make sure...
-- git pull
+- git pull --rebase
 - git push github-push --all
-- git pull
+- git pull --rebase
 - git push github-push --all
