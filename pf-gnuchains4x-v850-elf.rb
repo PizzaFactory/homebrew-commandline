@@ -10,8 +10,8 @@ class PfGnuchains4xV850Elf < Formula
   patch :DATA
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/1.0.0-beta1"
-    sha1 "8232ffdc3f4e96d25945902416f250cd76b83fb8" => :mavericks
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
+    sha1 "ec02b339a0fe8fea2edd30afff959bef9c061972" => :mavericks
   end
 
   depends_on :autoconf => :build

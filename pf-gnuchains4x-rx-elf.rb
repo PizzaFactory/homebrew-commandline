@@ -8,8 +8,8 @@ class PfGnuchains4xRxElf < Formula
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
-    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-beta2-hostfix-7"
-    sha1 "c1325f605d13dd32570bacdbe4924ddbde796e46" => :mavericks
+    root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
+    sha1 "7610c94074446f7843701cf10f584571e92fa239" => :mavericks
   end
 
   depends_on :autoconf => :build
