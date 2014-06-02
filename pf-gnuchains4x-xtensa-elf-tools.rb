@@ -25,7 +25,7 @@ class PfGnuchains4xXtensaElfTools < Formula
 
     Dir.mkdir 'build'
     cd 'build' do
-      system "../configure", "--quiet", "--disable-werror",
+      system "../configure", "--disable-werror",
                             "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
