@@ -46,7 +46,7 @@ deploy:
   provider: releases
   api-key:
   - secure: PwKJFynBZ8tK6ScOM5NCEv39JDVGupIrChiR6gyPlzwE2Q64OivmrM/N5IXIZYJyIh7ZHZ7eVOxTbVCmJZxLj1kMD4W+jj94y3HCaRog+eJRG2vapd+EtatCZFdrF2ccnWzO31hu3vLtZCIs3nD/vb0NyYexswJ3zzEcuqAp4iU=
-  file: $bottled_file
+  file: "$bottled_file"
   skip_cleanup: true
   on:
     tags: true
