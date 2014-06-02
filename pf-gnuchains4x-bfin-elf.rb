@@ -9,12 +9,14 @@ class PfGnuchains4xBfinElf < Formula
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
-    sha1 "e5f19dd0efc01c6e55235328e0b99a004da4cecd" => :mavericks
+#    sha1 "e5f19dd0efc01c6e55235328e0b99a004da4cecd" => :mavericks
   end
 
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool => :build
+
+  depends_on 'expat'
 
   def install
     ENV.j1
@@ -36,6 +38,7 @@ class PfGnuchains4xBfinElf < Formula
                             "--disable-rda",
                             "--enable-interwork",
                             "--enable-multilib",
+                            "--with-expat",
                             "--with-newlib",
                             "--without-headers",
                             "--without-ppl",
