@@ -45,10 +45,10 @@ class PfGnuchains4xShElfTools < Formula
                             "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}",
                             "--with-multilib-list=sh2,sh4,sh4-nofpu"
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gcc", "target-libgcc" ].each do |t|
         system 'make', "all-#{t}"
       end
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gcc", "target-libgcc" ].each do |t|
         system 'make', "install-#{t}"
       end
     end

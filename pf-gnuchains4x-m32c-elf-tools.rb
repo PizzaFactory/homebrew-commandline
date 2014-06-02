@@ -44,10 +44,10 @@ class PfGnuchains4xM32cElfTools < Formula
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}"
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gcc", "target-libgcc" ].each do |t|
         system 'make', "all-#{t}"
       end
-      [ "binutils", "ld", "gas", "gdb", "sim", "gcc", "target-libgcc" ].each do |t|
+      [ "binutils", "ld", "gas", "gcc", "target-libgcc" ].each do |t|
         system 'make', "install-#{t}"
       end
     end
