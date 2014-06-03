@@ -43,8 +43,8 @@ script:
 - brew audit $PACKAGE.rb
 - travis_wait 50 brew install --build-bottle $PACKAGE.rb
 - brew test $PACKAGE.rb
-- bottled_file=$(brew bottle --rb $PACKAGE.rb | head -1 | awk '{ gsub(/...$/, "", $3);
-  print $3}')
+- brew bottle --rb $PACKAGE.rb
+- "bottled_file=$(echo *.bottle.tar.gz)"
 deploy:
   edge: true
   provider: releases
