@@ -9,7 +9,7 @@ class PfGnuchains4xBfinElfTools < Formula
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-tools-0.14"
-    sha1 "4f1ab80d35f0dc2e0aae61c6f5c159e1bc641159" => :mavericks
+    sha1 "3c2fc45122f56029910ff99ae82e5b9670331e9e" => :mavericks
   end
 
   depends_on :autoconf => :build
