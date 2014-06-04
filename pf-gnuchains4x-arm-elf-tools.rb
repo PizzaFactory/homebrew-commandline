@@ -3,7 +3,7 @@ require "formula"
 class PfGnuchains4xArmElfTools < Formula
   homepage 'http://www.pizzafactory.jp/'
   url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.7.4-20140603.tar.gz'
-  sha1 '44087c51f94de324a1fb8a2b0413da8ad1259135'
+  sha1 'bd9e984efd0ad018a1f63df4fdfd98bbc7294e0e'
 
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
