@@ -41,7 +41,7 @@ env:
     secure: eyjnztPwfyykADsbJu5Wv+KLTOhyC2rhj/VSW5iIiyc5Wqe+D7EdgjD8esXm5oJBnXEdgoxydLKY2keBNjUX+VRJWF66Qs4T9X+vmEiX+ONaziZIiARN0jRyIR7dcGNjEdUE7U7Z7CNH4G8raFeibo9wg5N2XnuM3XhDXINjavo=
 script:
 - brew audit $PACKAGE.rb
-- travis_wait 50 brew install --build-bottle $PACKAGE.rb
+- travis_wait 49 brew install --build-bottle $PACKAGE.rb
 #- brew test $PACKAGE.rb
 - brew bottle --rb $PACKAGE.rb
 - "bottled_file=$(echo *.bottle.tar.gz)"
