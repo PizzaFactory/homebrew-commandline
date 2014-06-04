@@ -9,7 +9,7 @@ class PfGnuchains4xM32cElfLib < Formula
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.7"
-    sha1 "e9023d349eb460d7087258646bde9689851edf94" => :mavericks
+    sha1 "e4d37ba5196fe5977e68e1996d9f577d5d65fe2d" => :mavericks
   end
 
   depends_on :autoconf => :build
