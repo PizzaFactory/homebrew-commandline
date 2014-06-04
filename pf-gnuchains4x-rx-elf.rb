@@ -63,7 +63,7 @@ class PfGnuchains4xRxElf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-rx-elf-lib-20140428.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-rx-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 '4f9666b65379c9cfaf08b1a73a67168dcae7cd56' #sha1-lib-
   end
 

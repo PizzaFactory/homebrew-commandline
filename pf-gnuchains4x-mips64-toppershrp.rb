@@ -62,7 +62,7 @@ class PfGnuchains4xMips64Toppershrp < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-mips64-toppershrp-lib-20140428.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-mips64-toppershrp-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 '5230a707f38fc50e2a7dbb218c3b03b3afa3bf50' #sha1-lib-
   end
 
