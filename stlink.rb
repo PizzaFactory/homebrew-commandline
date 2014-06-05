@@ -22,7 +22,7 @@ class Stlink < Formula
   end
 
   test do
-    system "st-info"
+    system "st-info; [ $? == 255 ]"
   end
 end
 
