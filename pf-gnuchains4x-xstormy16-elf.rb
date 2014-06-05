@@ -62,7 +62,7 @@ class PfGnuchains4xXstormy16Elf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-xstormy16-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-xstormy16-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 '809e18d20ac06867adc4e744efd154aad1eed034' #sha1-lib-
   end
 

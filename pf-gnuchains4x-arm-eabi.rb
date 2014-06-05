@@ -63,7 +63,7 @@ class PfGnuchains4xArmEabi < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-arm-eabi-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-arm-eabi-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 "51f10009d0d0d1ae6753cace82b47705a3b10760" #sha1-lib-
   end
 

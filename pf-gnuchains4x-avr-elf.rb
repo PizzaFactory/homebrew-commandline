@@ -61,7 +61,7 @@ class PfGnuchains4xAvrElf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-avr-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-avr-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 'ac1855d3b35ca69ce139bce8bad94386d11a79d7' #sha1-lib-
   end
 

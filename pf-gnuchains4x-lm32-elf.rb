@@ -61,7 +61,7 @@ class PfGnuchains4xLm32Elf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-lm32-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-lm32-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 "2faeeb84cddc81a2a0980be11f424a05093556b0" #sha1-lib-
   end
 
