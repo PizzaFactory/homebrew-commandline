@@ -35,6 +35,7 @@ env:
   - PACKAGE=pf-gnuchains4x-v850-elf
   - PACKAGE=pf-gnuchains4x-xstormy16-elf
   - PACKAGE=pf-gnuchains4x-xtensa-elf
+  - PACKAGE=stlink
   - PACKAGE=urjtag
   global:
     secure: W45EELxImy/4VWYGIAMYRp23onrw6Bu/ALMA45MneHigTLdsiKMb2DgzJ1NVCGRnk3Yvl0LlBmWDJyz6FVerDm6fBplyN82BF3Q1gV2FrDcnkAvbz1nKshTbuQNLXYQ108qhCHJV/WTsycglKfYeLzmMrViE3vq69eozp8Qu2G8=

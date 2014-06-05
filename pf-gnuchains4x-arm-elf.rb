@@ -2,8 +2,8 @@ require "formula"
 
 class PfGnuchains4xArmElf < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140516.tar.gz'
-  sha1 '4b14822c6afeb6c554428dec3dfc58a0f40a9dbe'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.7.4-20140603.tar.gz'
+  sha1 'bd9e984efd0ad018a1f63df4fdfd98bbc7294e0e'
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
@@ -63,7 +63,7 @@ class PfGnuchains4xArmElf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-arm-elf-lib-20140428.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-arm-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 '377b87db194975657f303c52ca7c3f791a628853' #sha1-lib-
   end
 

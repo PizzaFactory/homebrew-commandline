@@ -2,8 +2,8 @@ require "formula"
 
 class PfGnuchains4xH8300Elf < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140516.tar.gz'
-  sha1 '4b14822c6afeb6c554428dec3dfc58a0f40a9dbe'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.7.4-20140603.tar.gz'
+  sha1 'bd9e984efd0ad018a1f63df4fdfd98bbc7294e0e'
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
@@ -61,8 +61,8 @@ class PfGnuchains4xH8300Elf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-h8300-elf-lib-20140428.mavericks.bottle.tar.gz'
-    sha1 '7427d3460bf84a6836460bfef40ffc179667be71' #sha1-lib-
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-h8300-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
+    sha1 "b3dac5cef4498ea41a7f767f0c28767b7f732cb3" #sha1-lib-
   end
 
   test do

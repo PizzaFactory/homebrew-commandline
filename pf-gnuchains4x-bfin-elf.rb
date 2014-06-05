@@ -2,19 +2,21 @@ require "formula"
 
 class PfGnuchains4xBfinElf < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140516.tar.gz'
-  sha1 '4b14822c6afeb6c554428dec3dfc58a0f40a9dbe'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.7.4-20140603.tar.gz'
+  sha1 'bd9e984efd0ad018a1f63df4fdfd98bbc7294e0e'
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
-    sha1 "e5f19dd0efc01c6e55235328e0b99a004da4cecd" => :mavericks
+#    sha1 "e5f19dd0efc01c6e55235328e0b99a004da4cecd" => :mavericks
   end
 
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool => :build
+
+  depends_on 'expat'
 
   def install
     ENV.j1
@@ -36,6 +38,7 @@ class PfGnuchains4xBfinElf < Formula
                             "--disable-rda",
                             "--enable-interwork",
                             "--enable-multilib",
+                            "--with-expat",
                             "--with-newlib",
                             "--without-headers",
                             "--without-ppl",
@@ -62,7 +65,7 @@ class PfGnuchains4xBfinElf < Formula
   end
 
   resource 'libs' do
-    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.0/pf-gnuchains4x-bfin-elf-lib-20140428.mavericks.bottle.tar.gz'
+    url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-gnuchains-libs-0.8/pf-gnuchains4x-bfin-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
     sha1 '8941a57124bddff024d160491cccbbf5f0da9c9c' #sha1-lib-
   end
 
