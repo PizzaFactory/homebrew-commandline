@@ -10,7 +10,7 @@ class KzH8write < Formula
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.1"
     cellar :any
-    sha1 "d8807f3c4f12f011bc541c07ce41c56ed691cbee" => :mavericks
+    sha1 "650fa8c4c0cc6af8c903ac8e994c360fc49f1f4a" => :mavericks
   end
 
   def install
