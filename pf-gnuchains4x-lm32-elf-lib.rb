@@ -8,6 +8,7 @@ class PfGnuchains4xLm32ElfLib < Formula
   head 'http://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
+    sha1 "2faeeb84cddc81a2a0980be11f424a05093556b0" => :mavericks
   end
 
   depends_on :autoconf => :build
