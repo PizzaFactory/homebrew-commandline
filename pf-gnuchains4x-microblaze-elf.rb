@@ -63,7 +63,7 @@ class PfGnuchains4xMicroblazeElf < Formula
 
   resource 'libs' do
     url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-microblaze-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
-    sha1 'd6a2a264797dc2b07b8cef2835895d8ebaa27551' #sha1-lib-
+    sha1 "5237298954d62e896cca6a8400a1cdc87ce99656" #sha1-lib-
   end
 
   test do

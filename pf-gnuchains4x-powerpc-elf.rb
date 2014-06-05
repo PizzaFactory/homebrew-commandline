@@ -63,7 +63,7 @@ class PfGnuchains4xPowerpcElf < Formula
 
   resource 'libs' do
     url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-powerpc-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
-    sha1 'c4936191c36df303fb117a21e5cee58be976633b' #sha1-lib-
+    sha1 "f978bdd1b7b5bac6c11779765c4e6c22e07eb3ae" #sha1-lib-
   end
 
   test do

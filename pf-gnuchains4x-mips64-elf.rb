@@ -63,7 +63,7 @@ class PfGnuchains4xMips64Elf < Formula
 
   resource 'libs' do
     url 'https://github.com/PizzaFactory/homebrew-commandline/releases/download/gnuchains-libs-0.8/pf-gnuchains4x-mips64-elf-lib-4.7.4-20140603.mavericks.bottle.tar.gz'
-    sha1 'd6fc7e508a92fdbdde04cf5fa467d03a269e5566' #sha1-lib-
+    sha1 "ef6ca9db20b2049334e076101e3bc8de848aa29e" #sha1-lib-
   end
 
   test do
