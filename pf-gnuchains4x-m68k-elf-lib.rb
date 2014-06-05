@@ -24,8 +24,7 @@ class PfGnuchains4xM68kElfLib < Formula
 
     Dir.mkdir 'build'
     cd 'build' do
-      system "../configure", "--quiet",
-                            "--disable-debug",
+      system "../configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{prefix}",
@@ -36,13 +35,14 @@ class PfGnuchains4xM68kElfLib < Formula
                             "--enable-interwork",
                             "--enable-multilib",
                             "--with-newlib",
-                            "--with-headers=`pwd`/../newlib/libc/include",
+                            "--with-headers=../newlib/libc/include",
                             "--without-ppl",
                             "--without-cloog",
                             "--enable-languages=c,c++",
                             "--with-bugurl=http://sourceforge.jp/projects/pf3gnuchains/ticket/",
                             "--datarootdir=#{share}/#{target}",
                             "--mandir=#{man}",
+                            "--disable-gmp",
                             "--disable-binutils",
                             "--disable-ld",
                             "--disable-gas",
