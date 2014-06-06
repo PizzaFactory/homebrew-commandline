@@ -9,7 +9,7 @@ class PfGnuchains4xMicroblazeElf < Formula
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.1"
-    sha1 "d1019fddec56995c4b83e040020bf252bbd25298" => :mavericks
+    sha1 "0dde4f4ea8f4f4a76831e71b63a69ff08d0e3a55" => :mavericks
   end
 
   depends_on :autoconf => :build
