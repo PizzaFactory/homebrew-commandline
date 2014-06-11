@@ -2,14 +2,14 @@ require "formula"
 
 class PfGnuchains4xBfinElf < Formula
   homepage 'http://www.pizzafactory.jp/'
-  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.7.4-20140603.tar.gz'
-  sha1 'bd9e984efd0ad018a1f63df4fdfd98bbc7294e0e'
+  url 'https://bitbucket.org/pizzafactory/pf-binutils-gdb/downloads/pf-binutils-gdb-4.6.4-20140516.tar.gz'
+  sha1 '4b14822c6afeb6c554428dec3dfc58a0f40a9dbe'
 
   head 'https://bitbucket.org/pizzafactory/pf-binutils-gdb.git'
 
   bottle do
     root_url "https://github.com/PizzaFactory/homebrew-commandline/releases/download/release-1.0.0-hotfix-1"
-#    sha1 "e5f19dd0efc01c6e55235328e0b99a004da4cecd" => :mavericks
+    sha1 "e5f19dd0efc01c6e55235328e0b99a004da4cecd" => :mavericks
   end
 
   depends_on :autoconf => :build
